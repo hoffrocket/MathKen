@@ -1,0 +1,9 @@
+build
+*.mode1v3
+*.mode2v3
+*.pbxuser
+*.tm_build_errors
+.DS_Store
+*.perspectivev3
+*.swp
+*~.nib
