@@ -7,3 +7,4 @@ build
 *.perspectivev3
 *.swp
 *~.nib
+*.TM_Completions.txt.gz

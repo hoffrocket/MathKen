@@ -17,7 +17,7 @@
 		28D7ACF80DDB3853001CB0EB /* MathKenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* MathKenViewController.m */; };
 		FC4910E70F64C383002E2388 /* MathKenView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4910E60F64C383002E2388 /* MathKenView.m */; };
 		FC4912850F677D77002E2388 /* MathKenSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4912840F677D77002E2388 /* MathKenSolver.m */; };
-		FC49128F0F6782C5002E2388 /* FooTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49128D0F6782C5002E2388 /* FooTest.m */; };
+		FC49128F0F6782C5002E2388 /* GridCreatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49128D0F6782C5002E2388 /* GridCreatorTest.m */; };
 		FC4912900F6782C5002E2388 /* MathKenSolverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49128E0F6782C5002E2388 /* MathKenSolverTest.m */; };
 		FC4912AD0F6782F0002E2388 /* GTMCALayer+UnitTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4912990F6782F0002E2388 /* GTMCALayer+UnitTesting.m */; };
 		FC4912AE0F6782F0002E2388 /* GTMIPhoneUnitTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49129B0F6782F0002E2388 /* GTMIPhoneUnitTestDelegate.m */; };
@@ -30,10 +30,14 @@
 		FC4912DC0F678427002E2388 /* GTMDevLog.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4912DB0F678427002E2388 /* GTMDevLog.m */; };
 		FC4912EE0F678558002E2388 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4912ED0F678558002E2388 /* CoreGraphics.framework */; };
 		FC4912F00F678558002E2388 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4912EF0F678558002E2388 /* QuartzCore.framework */; };
+		FC4913C50F68424D002E2388 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4913C40F68424D002E2388 /* NSArray+Shuffle.m */; };
+		FC49140A0F68ACA7002E2388 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4913C40F68424D002E2388 /* NSArray+Shuffle.m */; };
+		FC49141E0F68AF23002E2388 /* GridCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49141D0F68AF23002E2388 /* GridCreator.m */; };
+		FC4914330F68B165002E2388 /* GridCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49141D0F68AF23002E2388 /* GridCreator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FC4912800F677D44002E2388 /* PBXContainerItemProxy */ = {
+		FC4914250F68B034002E2388 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
@@ -41,6 +45,18 @@
 			remoteInfo = MathKen;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC4913860F682D91002E2388 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,7 +78,7 @@
 		FC49122C0F6771AB002E2388 /* Unit Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Test-Info.plist"; sourceTree = "<group>"; };
 		FC4912830F677D77002E2388 /* MathKenSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathKenSolver.h; sourceTree = "<group>"; };
 		FC4912840F677D77002E2388 /* MathKenSolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathKenSolver.m; sourceTree = "<group>"; };
-		FC49128D0F6782C5002E2388 /* FooTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FooTest.m; path = Tests/FooTest.m; sourceTree = "<group>"; };
+		FC49128D0F6782C5002E2388 /* GridCreatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridCreatorTest.m; path = Tests/GridCreatorTest.m; sourceTree = "<group>"; };
 		FC49128E0F6782C5002E2388 /* MathKenSolverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MathKenSolverTest.m; path = Tests/MathKenSolverTest.m; sourceTree = "<group>"; };
 		FC4912930F6782F0002E2388 /* GTMSystemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMSystemVersion.h; sourceTree = "<group>"; };
 		FC4912940F6782F0002E2388 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -79,6 +95,15 @@
 		FC4912DB0F678427002E2388 /* GTMDevLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMDevLog.m; sourceTree = "<group>"; };
 		FC4912ED0F678558002E2388 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FC4912EF0F678558002E2388 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FC4913A50F683020002E2388 /* GTMCALayer+UnitTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMCALayer+UnitTesting.h"; sourceTree = "<group>"; };
+		FC4913A60F683020002E2388 /* GTMNSObject+UnitTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSObject+UnitTesting.h"; sourceTree = "<group>"; };
+		FC4913A70F683020002E2388 /* GTMUIKit+UnitTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMUIKit+UnitTesting.h"; sourceTree = "<group>"; };
+		FC4913A80F683020002E2388 /* GTMUnitTestDevLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMUnitTestDevLog.h; sourceTree = "<group>"; };
+		FC4913A90F68302C002E2388 /* GTMRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMRegex.h; sourceTree = "<group>"; };
+		FC4913C30F68424D002E2388 /* NSArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Shuffle.h"; sourceTree = "<group>"; };
+		FC4913C40F68424D002E2388 /* NSArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Shuffle.m"; sourceTree = "<group>"; };
+		FC49141C0F68AF23002E2388 /* GridCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCreator.h; sourceTree = "<group>"; };
+		FC49141D0F68AF23002E2388 /* GridCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCreator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +140,10 @@
 				FC4910E60F64C383002E2388 /* MathKenView.m */,
 				FC4912830F677D77002E2388 /* MathKenSolver.h */,
 				FC4912840F677D77002E2388 /* MathKenSolver.m */,
+				FC4913C30F68424D002E2388 /* NSArray+Shuffle.h */,
+				FC4913C40F68424D002E2388 /* NSArray+Shuffle.m */,
+				FC49141C0F68AF23002E2388 /* GridCreator.h */,
+				FC49141D0F68AF23002E2388 /* GridCreator.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -136,11 +165,10 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				FC4913060F682CE3002E2388 /* Unit Test Frameworks */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				FC49122C0F6771AB002E2388 /* Unit Test-Info.plist */,
-				FC4912ED0F678558002E2388 /* CoreGraphics.framework */,
-				FC4912EF0F678558002E2388 /* QuartzCore.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -177,7 +205,7 @@
 		FC4912310F677305002E2388 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				FC49128D0F6782C5002E2388 /* FooTest.m */,
+				FC49128D0F6782C5002E2388 /* GridCreatorTest.m */,
 				FC49128E0F6782C5002E2388 /* MathKenSolverTest.m */,
 			);
 			name = Tests;
@@ -197,6 +225,7 @@
 		FC4912920F6782F0002E2388 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				FC4913A90F68302C002E2388 /* GTMRegex.h */,
 				FC4912D80F678412002E2388 /* GTMRegex.m */,
 				FC4912930F6782F0002E2388 /* GTMSystemVersion.h */,
 			);
@@ -206,6 +235,10 @@
 		FC4912950F6782F0002E2388 /* UnitTesting */ = {
 			isa = PBXGroup;
 			children = (
+				FC4913A50F683020002E2388 /* GTMCALayer+UnitTesting.h */,
+				FC4913A60F683020002E2388 /* GTMNSObject+UnitTesting.h */,
+				FC4913A70F683020002E2388 /* GTMUIKit+UnitTesting.h */,
+				FC4913A80F683020002E2388 /* GTMUnitTestDevLog.h */,
 				FC4912990F6782F0002E2388 /* GTMCALayer+UnitTesting.m */,
 				FC49129A0F6782F0002E2388 /* GTMIPhoneUnitTestDelegate.h */,
 				FC49129B0F6782F0002E2388 /* GTMIPhoneUnitTestDelegate.m */,
@@ -225,6 +258,15 @@
 				FC4912DB0F678427002E2388 /* GTMDevLog.m */,
 			);
 			path = DebugUtils;
+			sourceTree = "<group>";
+		};
+		FC4913060F682CE3002E2388 /* Unit Test Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC4912ED0F678558002E2388 /* CoreGraphics.framework */,
+				FC4912EF0F678558002E2388 /* QuartzCore.framework */,
+			);
+			name = "Unit Test Frameworks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +293,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC49122F0F6771AD002E2388 /* Build configuration list for PBXNativeTarget "Unit Test" */;
 			buildPhases = (
+				FC4913860F682D91002E2388 /* CopyFiles */,
 				FC4912260F6771AB002E2388 /* Resources */,
 				FC4912270F6771AB002E2388 /* Sources */,
 				FC4912280F6771AB002E2388 /* Frameworks */,
@@ -259,7 +302,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FC4912810F677D44002E2388 /* PBXTargetDependency */,
+				FC4914260F68B034002E2388 /* PBXTargetDependency */,
 			);
 			name = "Unit Test";
 			productName = "Unit Test";
@@ -330,6 +373,8 @@
 				28D7ACF80DDB3853001CB0EB /* MathKenViewController.m in Sources */,
 				FC4910E70F64C383002E2388 /* MathKenView.m in Sources */,
 				FC4912850F677D77002E2388 /* MathKenSolver.m in Sources */,
+				FC4913C50F68424D002E2388 /* NSArray+Shuffle.m in Sources */,
+				FC49141E0F68AF23002E2388 /* GridCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +382,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC49128F0F6782C5002E2388 /* FooTest.m in Sources */,
+				FC4914330F68B165002E2388 /* GridCreator.m in Sources */,
+				FC49140A0F68ACA7002E2388 /* NSArray+Shuffle.m in Sources */,
+				FC49128F0F6782C5002E2388 /* GridCreatorTest.m in Sources */,
 				FC4912900F6782C5002E2388 /* MathKenSolverTest.m in Sources */,
 				FC4912AD0F6782F0002E2388 /* GTMCALayer+UnitTesting.m in Sources */,
 				FC4912AE0F6782F0002E2388 /* GTMIPhoneUnitTestDelegate.m in Sources */,
@@ -353,10 +400,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FC4912810F677D44002E2388 /* PBXTargetDependency */ = {
+		FC4914260F68B034002E2388 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1D6058900D05DD3D006BFB54 /* MathKen */;
-			targetProxy = FC4912800F677D44002E2388 /* PBXContainerItemProxy */;
+			targetProxy = FC4914250F68B034002E2388 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -424,10 +471,23 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
 				INFOPLIST_FILE = "Unit Test-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
@@ -449,9 +509,22 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
 				INFOPLIST_FILE = "Unit Test-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (

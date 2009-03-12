@@ -7,7 +7,7 @@
 //
 
 #import "MathKenView.h"
-
+#import "GridCreator.h"
 
 @implementation MathKenView
 
@@ -68,11 +68,32 @@
 	CGContextSetLineWidth(context, 1.0);
 	float startX = 10.0;
 	
+	GridCreator * gridCreator = [[GridCreator alloc] init];
+	
+	NSArray *grid = [gridCreator newBoardWithDimension: dimension];
+	[gridCreator release];
+	
 	float size = floor((rect.size.width - (2*startX))/dimension);
 	float startY = (rect.size.height - (dimension * size)) / 2;
+	
+	CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
+
+	CGContextSelectFont(context, "Helvetica", 200/dimension, kCGEncodingMacRoman);
+    CGContextSetTextDrawingMode(context, kCGTextFill);
+	CGAffineTransform xform = CGAffineTransformMake(
+						1.0,  0.0, 
+						0.0, -1.0, 
+						0.0,  0.0);
+	
+    CGContextSetTextMatrix(context, xform);
+
 	for (int i = 0 ; i < dimension; i++) {
 		for (int j = 0; j < dimension; j++) {
-			CGContextStrokeRect(context, CGRectMake((i*size)+startX, (j* size)+startY, size,size));
+			float rectX = (i*size)+startX;
+			float rectY = (j* size)+startY;
+			CGContextStrokeRect(context, CGRectMake(rectX, rectY, size,size));
+			NSString * text = [[[grid objectAtIndex:j] objectAtIndex:i] stringValue];
+			CGContextShowTextAtPoint(context, rectX + (size*.38), rectY + (size/3)*2, [text UTF8String], [text length]);
 		}
 		
 	}
@@ -84,5 +105,5 @@
     [super dealloc];
 }
 
-
 @end
+ 

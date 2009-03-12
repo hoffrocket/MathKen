@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>Projects/MathKen/Classes/MathKenViewController.h</string>
+	<string>Classes/MathKenView.m</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,8 +13,6 @@
 			<string>MathKen</string>
 			<key>regexFolderFilter</key>
 			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
-			<key>selected</key>
-			<true/>
 			<key>sourceDirectory</key>
 			<string></string>
 		</dict>
@@ -23,7 +21,7 @@
 	<integer>388</integer>
 	<key>metaData</key>
 	<dict>
-		<key>Projects/MathKen/Classes/MathKenAppDelegate.h</key>
+		<key>Classes/MathKenAppDelegate.h</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -37,7 +35,7 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Projects/MathKen/Classes/MathKenAppDelegate.m</key>
+		<key>Classes/MathKenAppDelegate.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -51,7 +49,7 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Projects/MathKen/Classes/MathKenView.h</key>
+		<key>Classes/MathKenView.h</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -65,35 +63,35 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Projects/MathKen/Classes/MathKenView.m</key>
+		<key>Classes/MathKenView.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>37</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>67</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>49</integer>
+		</dict>
+		<key>Classes/MathKenViewController.h</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>23</integer>
+				<key>line</key>
+				<integer>9</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Projects/MathKen/Classes/MathKenViewController.h</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>17</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>Projects/MathKen/Classes/MathKenViewController.m</key>
+		<key>Classes/MathKenViewController.m</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -110,12 +108,12 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>Projects/MathKen/Classes/MathKenViewController.h</string>
-		<string>Projects/MathKen/Classes/MathKenViewController.m</string>
-		<string>Projects/MathKen/Classes/MathKenView.m</string>
-		<string>Projects/MathKen/Classes/MathKenView.h</string>
-		<string>Projects/MathKen/Classes/MathKenAppDelegate.m</string>
-		<string>Projects/MathKen/Classes/MathKenAppDelegate.h</string>
+		<string>Classes/MathKenViewController.h</string>
+		<string>Classes/MathKenViewController.m</string>
+		<string>Classes/MathKenView.m</string>
+		<string>Classes/MathKenView.h</string>
+		<string>Classes/MathKenAppDelegate.m</string>
+		<string>Classes/MathKenAppDelegate.h</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

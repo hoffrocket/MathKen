@@ -9,6 +9,7 @@
 #import "GTMSenTestCase.h"
 #import "MathKenSolver.h"
 
+
 @interface MathKenSolverTest : SenTestCase
 @end
 
@@ -16,6 +17,6 @@
 @implementation MathKenSolverTest
 
 - (void) testSolver {
-	STAssertLessThan(2,3,@"should be less than");
+	STAssertEquals(@"foo",@"foo",@"Should be equal");
 }
 @end
