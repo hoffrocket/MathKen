@@ -11,7 +11,10 @@
 
 @interface MathKenViewController : UIViewController {
 	MathKenView *mathKenView;
+	NSMutableArray * buttons;
 }
+@property(nonatomic, retain) NSMutableArray *buttons;
+@property(nonatomic, retain) MathKenView *mathKenView;
 
 @end
 

@@ -12,5 +12,5 @@
 @interface GridCreator : NSObject {
 
 }
--(NSArray *) newBoardWithDimension: (int) size;
+-(NSArray *) boardWithDimension: (int) size;
 @end

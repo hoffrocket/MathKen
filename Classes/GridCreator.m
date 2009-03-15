@@ -22,7 +22,7 @@
 	return TRUE;
 }
 
--(NSArray *) newBoardWithDimension: (int) size {
+-(NSArray *) boardWithDimension: (int) size {
 	NSMutableArray *grid = [NSMutableArray arrayWithCapacity: size];
 	for (int i = 0; i < size; i++){
 		NSMutableArray *row = [NSMutableArray arrayWithCapacity: size];

@@ -34,6 +34,11 @@
 		FC49140A0F68ACA7002E2388 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4913C40F68424D002E2388 /* NSArray+Shuffle.m */; };
 		FC49141E0F68AF23002E2388 /* GridCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49141D0F68AF23002E2388 /* GridCreator.m */; };
 		FC4914330F68B165002E2388 /* GridCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FC49141D0F68AF23002E2388 /* GridCreator.m */; };
+		FC4914EC0F6B50B3002E2388 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4914EB0F6B50B3002E2388 /* Board.m */; };
+		FC7A12270F6C84C8009E795E /* StartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7A12260F6C84C8009E795E /* StartGameViewController.m */; };
+		FC7A12310F6C8508009E795E /* StartGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7A12300F6C8508009E795E /* StartGameViewController.xib */; };
+		FCC88F7A0F6C4BF2008F46A7 /* BoardTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC88F790F6C4BF2008F46A7 /* BoardTest.m */; };
+		FCC88F8E0F6C4CF9008F46A7 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4914EB0F6B50B3002E2388 /* Board.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +46,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54 /* MathKen */;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
 			remoteInfo = MathKen;
 		};
 /* End PBXContainerItemProxy section */
@@ -104,6 +109,12 @@
 		FC4913C40F68424D002E2388 /* NSArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Shuffle.m"; sourceTree = "<group>"; };
 		FC49141C0F68AF23002E2388 /* GridCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCreator.h; sourceTree = "<group>"; };
 		FC49141D0F68AF23002E2388 /* GridCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCreator.m; sourceTree = "<group>"; };
+		FC4914EA0F6B50B3002E2388 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		FC4914EB0F6B50B3002E2388 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		FC7A12250F6C84C8009E795E /* StartGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartGameViewController.h; sourceTree = "<group>"; };
+		FC7A12260F6C84C8009E795E /* StartGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartGameViewController.m; sourceTree = "<group>"; };
+		FC7A12300F6C8508009E795E /* StartGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartGameViewController.xib; sourceTree = "<group>"; };
+		FCC88F790F6C4BF2008F46A7 /* BoardTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardTest.m; path = Tests/BoardTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +143,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FC7A12260F6C84C8009E795E /* StartGameViewController.m */,
+				FC7A12250F6C84C8009E795E /* StartGameViewController.h */,
 				1D3623240D0F684500981E51 /* MathKenAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MathKenAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* MathKenViewController.h */,
@@ -144,6 +157,8 @@
 				FC4913C40F68424D002E2388 /* NSArray+Shuffle.m */,
 				FC49141C0F68AF23002E2388 /* GridCreator.h */,
 				FC49141D0F68AF23002E2388 /* GridCreator.m */,
+				FC4914EA0F6B50B3002E2388 /* Board.h */,
+				FC4914EB0F6B50B3002E2388 /* Board.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -186,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				2899E5210DE3E06400AC0155 /* MathKenViewController.xib */,
+				FC7A12300F6C8508009E795E /* StartGameViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
@@ -205,6 +221,7 @@
 		FC4912310F677305002E2388 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				FCC88F790F6C4BF2008F46A7 /* BoardTest.m */,
 				FC49128D0F6782C5002E2388 /* GridCreatorTest.m */,
 				FC49128E0F6782C5002E2388 /* MathKenSolverTest.m */,
 			);
@@ -334,6 +351,7 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* MathKenViewController.xib in Resources */,
+				FC7A12310F6C8508009E795E /* StartGameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +393,8 @@
 				FC4912850F677D77002E2388 /* MathKenSolver.m in Sources */,
 				FC4913C50F68424D002E2388 /* NSArray+Shuffle.m in Sources */,
 				FC49141E0F68AF23002E2388 /* GridCreator.m in Sources */,
+				FC4914EC0F6B50B3002E2388 /* Board.m in Sources */,
+				FC7A12270F6C84C8009E795E /* StartGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCC88F8E0F6C4CF9008F46A7 /* Board.m in Sources */,
 				FC4914330F68B165002E2388 /* GridCreator.m in Sources */,
 				FC49140A0F68ACA7002E2388 /* NSArray+Shuffle.m in Sources */,
 				FC49128F0F6782C5002E2388 /* GridCreatorTest.m in Sources */,
@@ -394,6 +415,7 @@
 				FC4912B50F6782F0002E2388 /* GTMUnitTestDevLog.m in Sources */,
 				FC4912D90F678412002E2388 /* GTMRegex.m in Sources */,
 				FC4912DC0F678427002E2388 /* GTMDevLog.m in Sources */,
+				FCC88F7A0F6C4BF2008F46A7 /* BoardTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

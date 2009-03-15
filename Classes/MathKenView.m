@@ -7,71 +7,31 @@
 //
 
 #import "MathKenView.h"
-#import "GridCreator.h"
+#import "Board.h"
 
 @implementation MathKenView
 
-- (id) initWithFrame:(CGRect)rect {
+- (id) initWithFrame:(CGRect)rect dimension: (NSInteger)dimension{
 	self = [super initWithFrame:rect];
 	if (self != nil) {
 		NSLog(@"Insantiated the MathKenView");
+		
+		//timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/30)
+	     //   target:self selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
+		board = [[Board alloc] initWithDimension:dimension];
+	    
 	}
 	return self;
 }
 
 - (void)drawRect:(CGRect)rect {
-	NSLog(@"inside drawRect");
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	/**
-	
-	// Drawing with a white stroke color
-	
-	// And drawing with a blue fill color
-	CGContextSetRGBFillColor(context, 0.0, 0.0, 1.0, 1.0);
-	// Draw them with a 2.0 stroke width so they are a bit more visible.
-	CGContextSetLineWidth(context, 2.0);
-	
-	// Add Rect to the current path, then stroke it
-	CGContextAddRect(context, CGRectMake(30.0, 30.0, 60.0, 60.0));
-	CGContextStrokePath(context);
-	
-	// Stroke Rect convenience that is equivalent to above
-	CGContextStrokeRect(context, CGRectMake(30.0, 120.0, 60.0, 60.0));
-	
-	// Stroke rect convenience equivalent to the above, plus a call to CGContextSetLineWidth().
-	CGContextStrokeRectWithWidth(context, CGRectMake(30.0, 210.0, 60.0, 60.0), 10.0);
-	// Demonstate the stroke is on both sides of the path.
-	CGContextSaveGState(context);
-	CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);
-	CGContextStrokeRectWithWidth(context, CGRectMake(30.0, 210.0, 60.0, 60.0), 2.0);
-	CGContextRestoreGState(context);
-	
-	CGRect rects[] = 
-	{
-		CGRectMake(120.0, 30.0, 60.0, 60.0),
-		CGRectMake(120.0, 120.0, 60.0, 60.0),
-		CGRectMake(120.0, 210.0, 60.0, 60.0),
-	};
-	// Bulk call to add rects to the current path.
-	CGContextAddRects(context, rects, sizeof(rects)/sizeof(rects[0]));
-	CGContextStrokePath(context);
-	
-	// Create filled rectangles via two different paths.
-	// Add/Fill path
-	CGContextAddRect(context, CGRectMake(210.0, 210.0, 60.0, 60.0));
-	CGContextFillPath(context);
-	// Fill convienience.
-	CGContextFillRect(context, CGRectMake(210.0, 300.0, 60.0, 60.0));
-	 */
-	int dimension = 4;
+	//CGContextClearRect(context, rect);
+
+	int dimension = [board dimension];
 	CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 0.3);
 	CGContextSetLineWidth(context, 1.0);
 	float startX = 10.0;
-	
-	GridCreator * gridCreator = [[GridCreator alloc] init];
-	
-	NSArray *grid = [gridCreator newBoardWithDimension: dimension];
-	[gridCreator release];
 	
 	float size = floor((rect.size.width - (2*startX))/dimension);
 	float startY = (rect.size.height - (dimension * size)) / 2;
@@ -91,18 +51,64 @@
 		for (int j = 0; j < dimension; j++) {
 			float rectX = (i*size)+startX;
 			float rectY = (j* size)+startY;
+			bool wasTouched = false;
+			if (lastTouchPoint.x > rectX && lastTouchPoint.x < rectX + size && 
+				lastTouchPoint.y > rectY && lastTouchPoint.y < rectY + size) {
+				
+				wasTouched = true;
+			}
+			
+
 			CGContextStrokeRect(context, CGRectMake(rectX, rectY, size,size));
-			NSString * text = [[[grid objectAtIndex:j] objectAtIndex:i] stringValue];
-			CGContextShowTextAtPoint(context, rectX + (size*.38), rectY + (size/3)*2, [text UTF8String], [text length]);
+			
+			if (wasTouched) {
+				CGContextSetLineWidth(context, 3.0);
+				CGContextSetRGBStrokeColor(context,0.0, 125.0, 124.0, 1.0);
+#define TOUCHED_RECT 1
+				CGContextStrokeRect(context, CGRectMake(rectX+TOUCHED_RECT, rectY+TOUCHED_RECT, size-(2*TOUCHED_RECT),size-(2*TOUCHED_RECT)));
+				CGContextSetLineWidth(context, 1.0);
+				CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 0.3);
+				if (lastGuess > 0)
+				{
+					[board setGuessForXCoord:i yCoord:j guess:lastGuess];
+				}
+			}
+			int guess = [board valueAtX:i yCoord:j];
+			if (guess > 0) {
+				NSString * text = [[NSNumber numberWithInt: guess] stringValue];
+				if ([board isCorrectXCoord:i yCoord:j])
+				{
+						CGContextSetRGBFillColor(context, 0.0, 0.0, 255.0, 1.0);
+				}
+				else
+				{
+					CGContextSetRGBFillColor(context, 255.0, 0.0, 0.0, 1.0);
+				}
+				CGContextShowTextAtPoint(context, rectX + (size*.38), rectY + (size/3)*2, [text UTF8String], [text length]);
+			}
 		}
 		
 	}
+  lastGuess = 0;
 	
 }
 
+- (void) numberGuessed:(NSInteger) guess
+{
+	lastGuess = guess;
+	[self setNeedsDisplay];
+}
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	UITouch *touch = [touches anyObject];
+	
+	lastTouchPoint = [touch locationInView:self];
+	[self setNeedsDisplay];
+}
 - (void)dealloc {
-    [super dealloc];
+	[board release];
+	[super dealloc];
 }
 
 @end

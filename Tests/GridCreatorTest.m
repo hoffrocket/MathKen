@@ -18,10 +18,10 @@
 
 
 
--(void) testBar {
+-(void) testGridCreator {
 	GridCreator * gridCreator = [[GridCreator alloc] init];
 	NSUInteger expectedCount = 4;
-	NSArray * shuffledGrid = [gridCreator newBoardWithDimension: expectedCount];
+	NSArray * shuffledGrid = [gridCreator boardWithDimension: expectedCount];
 	NSUInteger shuffleGridCount =  [shuffledGrid count];
 	STAssertEquals(expectedCount,shuffleGridCount, @"Unexpected count");
 	for (NSUInteger i = 0; i < shuffleGridCount ; i++){

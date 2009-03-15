@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Board.h"
 
 @interface MathKenView : UIView {
-
+	NSTimer * timer;
+	Board * board;
+	CGPoint lastTouchPoint;
+	NSInteger lastGuess;
 }
-
+- (id) initWithFrame:(CGRect)rect dimension: (NSInteger)dimension;
+- (void) numberGuessed:(NSInteger) guess;
 @end
