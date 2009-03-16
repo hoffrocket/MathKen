@@ -22,7 +22,7 @@
 	return self;
 }
 
-#define DIMENSION 4
+#define DIMENSION 6
 
  // Implement loadView to create a view hierarchy programmatically, without using a nib.
  - (void)loadView {

@@ -16,9 +16,16 @@
 
 @implementation BoardTest
 
--(void) testFoo 
+-(void) testMathConstraints 
 {
-	STAssertEqualObjects(@"foo",@"foo", nil);
+	int dim = 4;
+	Board * board = [[Board alloc] initWithDimension:dim];
+
+	AnswerBox * box = [board answerBoxAtX:i yCoord:y];
+
+	
+	
+	[board release];
 }
 -(void) testBoard
 {

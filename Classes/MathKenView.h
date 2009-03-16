@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "Board.h"
+#import "MKCell.h"
 
 @interface MathKenView : UIView {
 	NSTimer * timer;
 	Board * board;
-	CGPoint lastTouchPoint;
-	NSInteger lastGuess;
+	MKCell * activeCell;
 }
+
 - (id) initWithFrame:(CGRect)rect dimension: (NSInteger)dimension;
 - (void) numberGuessed:(NSInteger) guess;
+- (void) cellSelected:(id)sender;
+
+@property (nonatomic, retain) MKCell * activeCell;
 @end

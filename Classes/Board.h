@@ -8,39 +8,51 @@
 
 #import <Foundation/Foundation.h>
 
+@interface MKConstraint :NSObject {
+	NSString * operation;
+	NSInteger sum;
+}
+-(id) initWithBoxes: (NSArray *) boxes;
++(NSInteger) doSumFor:(char) oper withAnswerBoxes: (NSArray *) boxes;
+@property (nonatomic, retain) NSString * operation;
+@property (nonatomic) NSInteger sum;
+@end
+
 @interface AnswerBox : NSObject {
-	char x;
-	char y;
-	NSMutableArray *siblings;
-	char operation;
-	int sum;
+	MKConstraint * constraint;
 	char actualValue;
 	char currentGuess;
 	NSMutableArray *notes;
 }
--(id)initWithX: (int)x yCoord: (int) y value: (int) value;
--(BOOL) setCurrentGuess: (int) guess;
+-(id)initWithValue: (NSInteger) value;
+-(BOOL) setCurrentGuess: (NSInteger) guess;
 -(void) addNote: (NSNumber *) note;
 -(BOOL) isCorrectGuess;
--(int) guess;
+-(NSInteger) guess;
 
-@property (nonatomic, retain) NSMutableArray *siblings;
 @property (nonatomic, retain) NSMutableArray *notes;
-
-
+@property (nonatomic, retain) MKConstraint * constraint;
+@property (nonatomic) char actualValue;
 @end
+
+
 
 @interface Board : NSObject {
 	NSMutableArray *gameBoard;
-	int dimension;
+	NSInteger dimension;
 }
--(BOOL) setGuessForXCoord: (int) x yCoord: (int) y guess: (int) guess;
--(BOOL) isCorrectXCoord: (int) x yCoord: (int) y;
--(int) valueAtX: (int) x yCoord: (int) y;
+-(BOOL) setGuessForXCoord: (NSInteger) x yCoord: (NSInteger) y guess: (NSInteger) guess;
+-(BOOL) isCorrectXCoord: (NSInteger) x yCoord: (NSInteger) y;
+-(NSInteger) valueAtX: (NSInteger) x yCoord: (NSInteger) y;
 
--(id) initWithDimension: (int) dimension;
--(int) dimension;
-
+-(id) initWithDimension: (NSInteger) dimension;
+-(NSInteger) dimension;
+-(BOOL) hasTop: (NSInteger) x Y: (NSInteger) y;
+-(BOOL) hasBottom: (NSInteger) x Y: (NSInteger) y;
+-(BOOL) hasLeft: (NSInteger) x Y: (NSInteger) y;
+-(BOOL) hasRight: (NSInteger) x Y: (NSInteger) y;
+-(NSString *) operationFor:(NSInteger) x Y: (NSInteger)y;
+-(NSInteger) sumFor: (NSInteger) x Y: (NSInteger)y;
 @property (nonatomic, retain) NSMutableArray *gameBoard;
 
 @end
