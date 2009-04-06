@@ -11,6 +11,7 @@
 @interface MKConstraint :NSObject {
 	NSString * operation;
 	NSInteger sum;
+	
 }
 -(id) initWithBoxes: (NSArray *) boxes;
 +(NSInteger) doSumFor:(char) oper withAnswerBoxes: (NSArray *) boxes;
@@ -41,11 +42,13 @@
 	NSMutableArray *gameBoard;
 	NSInteger dimension;
 }
++(Board *) createBoardWithLayout: (NSString *) layout;
 -(BOOL) setGuessForXCoord: (NSInteger) x yCoord: (NSInteger) y guess: (NSInteger) guess;
 -(BOOL) isCorrectXCoord: (NSInteger) x yCoord: (NSInteger) y;
 -(NSInteger) valueAtX: (NSInteger) x yCoord: (NSInteger) y;
 
 -(id) initWithDimension: (NSInteger) dimension;
+-(id) initWithBoard: (NSMutableArray *) board;
 -(NSInteger) dimension;
 -(BOOL) hasTop: (NSInteger) x Y: (NSInteger) y;
 -(BOOL) hasBottom: (NSInteger) x Y: (NSInteger) y;

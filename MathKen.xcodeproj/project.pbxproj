@@ -35,8 +35,15 @@
 		FC4914EC0F6B50B3002E2388 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4914EB0F6B50B3002E2388 /* Board.m */; };
 		FC7A12270F6C84C8009E795E /* StartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7A12260F6C84C8009E795E /* StartGameViewController.m */; };
 		FC7A12310F6C8508009E795E /* StartGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7A12300F6C8508009E795E /* StartGameViewController.xib */; };
+		FC8D4B070F8A7BC8002A4CC9 /* NSInvocation+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D4B040F8A7BC8002A4CC9 /* NSInvocation+Functional.m */; };
+		FC8D4B080F8A7BC8002A4CC9 /* NSArray+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D4B060F8A7BC8002A4CC9 /* NSArray+Functional.m */; };
+		FC8D4B090F8A7BC8002A4CC9 /* NSInvocation+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D4B040F8A7BC8002A4CC9 /* NSInvocation+Functional.m */; };
+		FC8D4B0A0F8A7BC8002A4CC9 /* NSArray+Functional.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D4B060F8A7BC8002A4CC9 /* NSArray+Functional.m */; };
+		FC8D4BDD0F8AA9C9002A4CC9 /* MKSolverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D4BDC0F8AA9C9002A4CC9 /* MKSolverTest.m */; };
 		FCC0896D0F6D762400CC9936 /* MKCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC0896C0F6D762400CC9936 /* MKCell.m */; };
 		FCC0896E0F6D762400CC9936 /* MKCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC0896C0F6D762400CC9936 /* MKCell.m */; };
+		FCC08AFC0F74602600CC9936 /* MKSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC08AFB0F74602600CC9936 /* MKSolver.m */; };
+		FCC08AFD0F74602600CC9936 /* MKSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC08AFB0F74602600CC9936 /* MKSolver.m */; };
 		FCC88F7A0F6C4BF2008F46A7 /* BoardTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC88F790F6C4BF2008F46A7 /* BoardTest.m */; };
 		FCC88F8E0F6C4CF9008F46A7 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4914EB0F6B50B3002E2388 /* Board.m */; };
 /* End PBXBuildFile section */
@@ -111,8 +118,15 @@
 		FC7A12250F6C84C8009E795E /* StartGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartGameViewController.h; sourceTree = "<group>"; };
 		FC7A12260F6C84C8009E795E /* StartGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartGameViewController.m; sourceTree = "<group>"; };
 		FC7A12300F6C8508009E795E /* StartGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartGameViewController.xib; sourceTree = "<group>"; };
+		FC8D4B030F8A7BC8002A4CC9 /* NSInvocation+Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Functional.h"; sourceTree = "<group>"; };
+		FC8D4B040F8A7BC8002A4CC9 /* NSInvocation+Functional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Functional.m"; sourceTree = "<group>"; };
+		FC8D4B050F8A7BC8002A4CC9 /* NSArray+Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Functional.h"; sourceTree = "<group>"; };
+		FC8D4B060F8A7BC8002A4CC9 /* NSArray+Functional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Functional.m"; sourceTree = "<group>"; };
+		FC8D4BDC0F8AA9C9002A4CC9 /* MKSolverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKSolverTest.m; path = Tests/MKSolverTest.m; sourceTree = "<group>"; };
 		FCC0896B0F6D762400CC9936 /* MKCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKCell.h; sourceTree = "<group>"; };
 		FCC0896C0F6D762400CC9936 /* MKCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKCell.m; sourceTree = "<group>"; };
+		FCC08AFA0F74602600CC9936 /* MKSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSolver.h; sourceTree = "<group>"; };
+		FCC08AFB0F74602600CC9936 /* MKSolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSolver.m; sourceTree = "<group>"; };
 		FCC88F790F6C4BF2008F46A7 /* BoardTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardTest.m; path = Tests/BoardTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +156,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FC8D4B030F8A7BC8002A4CC9 /* NSInvocation+Functional.h */,
+				FC8D4B040F8A7BC8002A4CC9 /* NSInvocation+Functional.m */,
+				FC8D4B050F8A7BC8002A4CC9 /* NSArray+Functional.h */,
+				FC8D4B060F8A7BC8002A4CC9 /* NSArray+Functional.m */,
 				FC7A12260F6C84C8009E795E /* StartGameViewController.m */,
 				FC7A12250F6C84C8009E795E /* StartGameViewController.h */,
 				1D3623240D0F684500981E51 /* MathKenAppDelegate.h */,
@@ -158,6 +176,8 @@
 				FC4914EB0F6B50B3002E2388 /* Board.m */,
 				FCC0896B0F6D762400CC9936 /* MKCell.h */,
 				FCC0896C0F6D762400CC9936 /* MKCell.m */,
+				FCC08AFA0F74602600CC9936 /* MKSolver.h */,
+				FCC08AFB0F74602600CC9936 /* MKSolver.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -220,6 +240,7 @@
 		FC4912310F677305002E2388 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				FC8D4BDC0F8AA9C9002A4CC9 /* MKSolverTest.m */,
 				FCC88F790F6C4BF2008F46A7 /* BoardTest.m */,
 				FC49128D0F6782C5002E2388 /* GridCreatorTest.m */,
 			);
@@ -393,6 +414,9 @@
 				FC4914EC0F6B50B3002E2388 /* Board.m in Sources */,
 				FC7A12270F6C84C8009E795E /* StartGameViewController.m in Sources */,
 				FCC0896D0F6D762400CC9936 /* MKCell.m in Sources */,
+				FCC08AFD0F74602600CC9936 /* MKSolver.m in Sources */,
+				FC8D4B090F8A7BC8002A4CC9 /* NSInvocation+Functional.m in Sources */,
+				FC8D4B0A0F8A7BC8002A4CC9 /* NSArray+Functional.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +438,10 @@
 				FC4912DC0F678427002E2388 /* GTMDevLog.m in Sources */,
 				FCC88F7A0F6C4BF2008F46A7 /* BoardTest.m in Sources */,
 				FCC0896E0F6D762400CC9936 /* MKCell.m in Sources */,
+				FCC08AFC0F74602600CC9936 /* MKSolver.m in Sources */,
+				FC8D4B070F8A7BC8002A4CC9 /* NSInvocation+Functional.m in Sources */,
+				FC8D4B080F8A7BC8002A4CC9 /* NSArray+Functional.m in Sources */,
+				FC8D4BDD0F8AA9C9002A4CC9 /* MKSolverTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -132,6 +132,27 @@
 	return [[gameBoard objectAtIndex:x]objectAtIndex:y];
 }
 
+-(id) initWithBoard: (NSMutableArray *) board {
+	self = [super init];
+	if (self != nil) {
+		gameBoard = [board retain];
+		dimension = [board count];
+	}
+	return self;
+}
+
++(Board *) createBoardWithLayout: (NSString *) layout
+{
+	NSArray *lines = [layout componentsSeparatedByString:@"\n"];
+	NSInteger dimension = [[lines objectAtIndex:0] integerValue];
+	NSMutableArray * boardArray = [[NSMutableArray alloc] initWithCapacity: dimension];
+	
+	
+	Board * board = [[Board alloc] initWithBoard: boardArray];
+	[boardArray release];
+	return [board autorelease];
+}
+
 -(id) initWithDimension: (NSInteger) dimensionParam {
 	self = [super init];
 	if (self != nil) {
