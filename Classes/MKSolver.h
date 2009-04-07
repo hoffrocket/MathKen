@@ -8,13 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Board.h"
-
-@interface MKSolver : NSObject {
-	Board * board;
-	NSString * layout;
-}
--(id) initWithLayout:(NSString *) layout;
--(NSArray *) createSolution;
-@property(nonatomic, retain) Board *board;
-@property(nonatomic, retain) NSString *layout;
+@interface MKSolver : NSObject
+-(BOOL)isSolutionUnique: (Board *)board;
+-(NSArray *) solveFromLayout: (NSString *) layout;
+-(NSArray *) solveFromBoard: (Board *) board;
+-(NSArray *) solveFromConstraintMap: (NSMutableDictionary *) constraintMap dimension: (NSInteger) dimension;
 @end

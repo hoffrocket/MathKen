@@ -9,14 +9,17 @@
 #import "Board.h"
 #import "GridCreator.h"
 #import "NSArray+Shuffle.h"
+#import "MKSolver.h"
 
 @implementation AnswerBox
 
--(id)initWithValue: (NSInteger) value {
+-(id)initWithValue: (NSInteger) value X: (NSInteger)xValue Y: (NSInteger)yValue {
 	self = [super init];
 	if (self != nil) {
 		actualValue = value;
 		notes = [[NSMutableArray alloc] init];
+		x = xValue;
+		y = yValue;
 	}
 	return self;
 }
@@ -34,7 +37,7 @@
 	[notes addObject:note];
 }
 
-@synthesize constraint,notes, actualValue;
+@synthesize constraint,notes, actualValue,x,y;
 
 -(void) dealloc {
 	[constraint release];
@@ -52,7 +55,7 @@
 	self = [super init];
 	if (self != nil)
 	{
-		
+		answerBoxes = boxes;
 		NSArray * shuffledBoxes = [boxes shuffledArray];
 
 		if ([shuffledBoxes count] == 1)
@@ -121,7 +124,7 @@
 	return tSum;
 }
 
-@synthesize operation, sum;
+@synthesize operation, sum, answerBoxes;
 
 @end
 
@@ -160,83 +163,88 @@
 		GridCreator * gridCreator = [[GridCreator alloc] init];
 		NSArray *gridValues = [gridCreator boardWithDimension: dimension];
 		[gridCreator release];
-		gameBoard = [[NSMutableArray alloc] initWithCapacity: dimension];
+		MKSolver * solver = [[MKSolver alloc] init];
+		do
+		{
+			gameBoard = [[NSMutableArray alloc] initWithCapacity: dimension];
+			
+
+			NSMutableArray *wasSeen = [[NSMutableArray alloc] initWithCapacity: dimension];
+			for (int i = 0; i < dimension; i++) {
+				NSMutableArray *gameRow = [NSMutableArray arrayWithCapacity:dimension];
+				NSMutableArray *wasSeenRow = [NSMutableArray arrayWithCapacity:dimension];
+				[wasSeen addObject: wasSeenRow];
+				NSArray *gridRow = [gridValues objectAtIndex:i];
+				for (int j=0; j < dimension; j++) {
+					AnswerBox *answerBox = [[AnswerBox alloc] initWithValue: [[gridRow objectAtIndex:j] intValue] X:i Y:j];
+					[gameRow addObject: answerBox];
+					[answerBox release];
+					[wasSeenRow addObject:[[NSNumber numberWithBool:false]retain]];
+				}
+				[gameBoard addObject: gameRow];
+			}
 		
 
-		NSMutableArray *wasSeen = [[NSMutableArray alloc] initWithCapacity: dimension];
-		for (int i = 0; i < dimension; i++) {
-			NSMutableArray *gameRow = [NSMutableArray arrayWithCapacity:dimension];
-			NSMutableArray *wasSeenRow = [NSMutableArray arrayWithCapacity:dimension];
-			[wasSeen addObject: wasSeenRow];
-			NSArray *gridRow = [gridValues objectAtIndex:i];
-			for (int j=0; j < dimension; j++) {
-				AnswerBox *answerBox = [[AnswerBox alloc] initWithValue: [[gridRow objectAtIndex:j] intValue]];
-				[gameRow addObject: answerBox];
-				[answerBox release];
-				[wasSeenRow addObject:[[NSNumber numberWithBool:false]retain]];
-			}
-			[gameBoard addObject: gameRow];
-		}
-	
-
-		for (int i = 0; i < dimension; i++) {
-			for (int j=0; j < dimension; j++) {
-				
-				if(![[[wasSeen objectAtIndex:i] objectAtIndex:j] boolValue])
-				{
-
-					NSMutableArray *boxes = [NSMutableArray array];
-
-					NSArray * firstCell = [[NSArray alloc]  initWithObjects: [NSNumber numberWithInt:i], [NSNumber numberWithInt:j], nil];
-					NSMutableArray *adjacents = [NSMutableArray arrayWithObject: firstCell];
-					[firstCell release];
-					int cSize = (arc4random() % (dimension <= 4 ? dimension - 1 : 4)) +1;
-					while (cSize > 0 && [adjacents count] > 0)
-					{
-						NSArray *cell = [adjacents objectAtIndex:(arc4random() % [adjacents count])];
-						int cI = [[cell objectAtIndex:0]intValue];
-						int cJ = [[cell objectAtIndex:1]intValue];
-						
-						AnswerBox *box = [self answerBoxAtX:cI yCoord: cJ];
-						[boxes addObject:box];
-						[[wasSeen objectAtIndex:cI] replaceObjectAtIndex:cJ withObject: [NSNumber numberWithBool:true]];
-						NSLog(@"Visiting box %d, %d", cI, cJ);
-						
-						adjacents = [NSMutableArray array];
-						
-						if (cI> 0 && ![[[wasSeen objectAtIndex:cI - 1] objectAtIndex:cJ] boolValue])
-						{
-							[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI-1], [NSNumber numberWithInt:cJ], nil]];
-						}
-						if (cI < dimension - 1 && ![[[wasSeen objectAtIndex:cI + 1] objectAtIndex:cJ] boolValue])
-						{
-							[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI+1], [NSNumber numberWithInt:cJ], nil]];
-						}
-						if (cJ < 0 && ![[[wasSeen objectAtIndex:cI ] objectAtIndex:cJ - 1] boolValue])
-						{
-							[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI], [NSNumber numberWithInt:cJ - 1], nil]];
-						}
-						if (cJ < dimension - 1 && ![[[wasSeen objectAtIndex:cI] objectAtIndex:cJ+1] boolValue])
-						{
-							[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI], [NSNumber numberWithInt:cJ + 1], nil]];
-						}
-						cSize --;
-					}
+			for (int i = 0; i < dimension; i++) {
+				for (int j=0; j < dimension; j++) {
 					
-					MKConstraint * constraint = [[MKConstraint alloc]initWithBoxes:boxes];
-					for (AnswerBox *box in boxes)
+					if(![[[wasSeen objectAtIndex:i] objectAtIndex:j] boolValue])
 					{
 
-						box.constraint = constraint;
-					}
-					[constraint release];
+						NSMutableArray *boxes = [NSMutableArray array];
 
+						NSArray * firstCell = [[NSArray alloc]  initWithObjects: [NSNumber numberWithInt:i], [NSNumber numberWithInt:j], nil];
+						NSMutableArray *adjacents = [NSMutableArray arrayWithObject: firstCell];
+						[firstCell release];
+						int cSize = (arc4random() % (dimension <= 4 ? dimension - 1 : 4)) +1;
+						while (cSize > 0 && [adjacents count] > 0)
+						{
+							NSArray *cell = [adjacents objectAtIndex:(arc4random() % [adjacents count])];
+							int cI = [[cell objectAtIndex:0]intValue];
+							int cJ = [[cell objectAtIndex:1]intValue];
+							
+							AnswerBox *box = [self answerBoxAtX:cI yCoord: cJ];
+							[boxes addObject:box];
+							[[wasSeen objectAtIndex:cI] replaceObjectAtIndex:cJ withObject: [NSNumber numberWithBool:true]];
+							NSLog(@"Visiting box %d, %d", cI, cJ);
+							
+							adjacents = [NSMutableArray array];
+							
+							if (cI> 0 && ![[[wasSeen objectAtIndex:cI - 1] objectAtIndex:cJ] boolValue])
+							{
+								[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI-1], [NSNumber numberWithInt:cJ], nil]];
+							}
+							if (cI < dimension - 1 && ![[[wasSeen objectAtIndex:cI + 1] objectAtIndex:cJ] boolValue])
+							{
+								[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI+1], [NSNumber numberWithInt:cJ], nil]];
+							}
+							if (cJ < 0 && ![[[wasSeen objectAtIndex:cI ] objectAtIndex:cJ - 1] boolValue])
+							{
+								[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI], [NSNumber numberWithInt:cJ - 1], nil]];
+							}
+							if (cJ < dimension - 1 && ![[[wasSeen objectAtIndex:cI] objectAtIndex:cJ+1] boolValue])
+							{
+								[adjacents addObject: [NSArray arrayWithObjects: [NSNumber numberWithInt:cI], [NSNumber numberWithInt:cJ + 1], nil]];
+							}
+							cSize --;
+						}
+						
+						MKConstraint * constraint = [[MKConstraint alloc]initWithBoxes:boxes];
+						for (AnswerBox *box in boxes)
+						{
+
+							box.constraint = constraint;
+						}
+						[constraint release];
+
+					}
+					AnswerBox *box = [self answerBoxAtX:i yCoord: j];
+					NSLog(@"%ld,%ld will have constraint %ld %@", (long)i, (long)j, (long)box.constraint.sum, box.constraint.operation);
 				}
-				AnswerBox *box = [self answerBoxAtX:i yCoord: j];
-				NSLog(@"%ld,%ld will have constraint %ld %@", (long)i, (long)j, (long)box.constraint.sum, box.constraint.operation);
 			}
-		}
-		[wasSeen release];
+			[wasSeen release];
+		} while(![solver isSolutionUnique: self]);
+		[solver release];
 	}
 	return self;
 }

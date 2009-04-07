@@ -11,11 +11,12 @@
 @interface MKConstraint :NSObject {
 	NSString * operation;
 	NSInteger sum;
-	
+	NSArray * answerBoxes;
 }
 -(id) initWithBoxes: (NSArray *) boxes;
 +(NSInteger) doSumFor:(char) oper withAnswerBoxes: (NSArray *) boxes;
 @property (nonatomic, retain) NSString * operation;
+@property (nonatomic, retain) NSArray * answerBoxes;
 @property (nonatomic) NSInteger sum;
 @end
 
@@ -24,8 +25,10 @@
 	char actualValue;
 	char currentGuess;
 	NSMutableArray *notes;
+	NSInteger x;
+	NSInteger y;
 }
--(id)initWithValue: (NSInteger) value;
+-(id)initWithValue: (NSInteger) value X: (NSInteger)xValue Y: (NSInteger)yValue;
 -(BOOL) setCurrentGuess: (NSInteger) guess;
 -(void) addNote: (NSNumber *) note;
 -(BOOL) isCorrectGuess;
@@ -34,6 +37,8 @@
 @property (nonatomic, retain) NSMutableArray *notes;
 @property (nonatomic, retain) MKConstraint * constraint;
 @property (nonatomic) char actualValue;
+@property (nonatomic) NSInteger x;
+@property (nonatomic) NSInteger y;
 @end
 
 
@@ -46,7 +51,7 @@
 -(BOOL) setGuessForXCoord: (NSInteger) x yCoord: (NSInteger) y guess: (NSInteger) guess;
 -(BOOL) isCorrectXCoord: (NSInteger) x yCoord: (NSInteger) y;
 -(NSInteger) valueAtX: (NSInteger) x yCoord: (NSInteger) y;
-
+-(AnswerBox *) answerBoxAtX: (NSInteger) x yCoord:(NSInteger)y;
 -(id) initWithDimension: (NSInteger) dimension;
 -(id) initWithBoard: (NSMutableArray *) board;
 -(NSInteger) dimension;
