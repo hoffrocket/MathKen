@@ -3,7 +3,7 @@
 //  MathKen
 //
 //  Created by Jonathan Hoffman on 2/22/09.
-//  Copyright Goldman Sachs 2009. All rights reserved.
+//  Copyright Jonathan Hoffman 2009. All rights reserved.
 //
 
 #import "MathKenAppDelegate.h"
