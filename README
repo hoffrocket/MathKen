@@ -1,5 +1,5 @@
 I've decided to throw this into the wild since I haven't worked on it in a few months and there are already a few good KenKen clones on the App store.
 
-The solving algorithm is unusably slow on puzzles bigger than 6x6.  I was planning on either optimizing like crazy, of if that didn't work, preloading a few thoasand puzzles.  Solving, or prefrabricating, is necessary because puzzles with multiple solutions aren't that fun.
+The solving algorithm is unusably slow on puzzles bigger than 4x4.  I was planning on either optimizing like crazy or, if that didn't work, preloading a few thoasand puzzles.  Solving, or prefrabricating, is necessary because puzzles with multiple solutions aren't that fun.
 
 - Jon
