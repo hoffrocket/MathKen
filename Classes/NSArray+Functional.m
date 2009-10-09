@@ -61,9 +61,7 @@
 	id result = [self objectAtIndex:0];
 	
 	NSUInteger i;
-	id o;
 	for(i = 1; i < [self count]; i++) {
-		o = [self objectAtIndex:i];
 		result = [result performSelector:aSelector withObject:[self objectAtIndex:i]];
 	}
 	

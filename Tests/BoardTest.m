@@ -16,7 +16,6 @@
 
 @implementation BoardTest
 
-
 -(void) testBoard
 {
 	int dim = 4;

@@ -166,6 +166,10 @@
 		MKSolver * solver = [[MKSolver alloc] init];
 		do
 		{
+			if (gameBoard != nil)
+			{
+				[gameBoard release];
+			}
 			gameBoard = [[NSMutableArray alloc] initWithCapacity: dimension];
 			
 
@@ -184,7 +188,9 @@
 				[gameBoard addObject: gameRow];
 			}
 		
-
+			//constraint region size 1/8 [1,4] 3/8 [2,3]
+			int sizes[] = {1,2,2,2,3,3,3,4};
+			
 			for (int i = 0; i < dimension; i++) {
 				for (int j=0; j < dimension; j++) {
 					
@@ -196,7 +202,8 @@
 						NSArray * firstCell = [[NSArray alloc]  initWithObjects: [NSNumber numberWithInt:i], [NSNumber numberWithInt:j], nil];
 						NSMutableArray *adjacents = [NSMutableArray arrayWithObject: firstCell];
 						[firstCell release];
-						int cSize = (arc4random() % (dimension <= 4 ? dimension - 1 : 4)) +1;
+
+						int cSize = sizes[arc4random() % 8];
 						while (cSize > 0 && [adjacents count] > 0)
 						{
 							NSArray *cell = [adjacents objectAtIndex:(arc4random() % [adjacents count])];
@@ -206,7 +213,10 @@
 							AnswerBox *box = [self answerBoxAtX:cI yCoord: cJ];
 							[boxes addObject:box];
 							[[wasSeen objectAtIndex:cI] replaceObjectAtIndex:cJ withObject: [NSNumber numberWithBool:true]];
+							
+#ifdef DEBUG
 							NSLog(@"Visiting box %d, %d", cI, cJ);
+#endif
 							
 							adjacents = [NSMutableArray array];
 							
@@ -238,8 +248,11 @@
 						[constraint release];
 
 					}
+
+#ifdef DEBUG
 					AnswerBox *box = [self answerBoxAtX:i yCoord: j];
 					NSLog(@"%ld,%ld will have constraint %ld %@", (long)i, (long)j, (long)box.constraint.sum, box.constraint.operation);
+#endif
 				}
 			}
 			[wasSeen release];

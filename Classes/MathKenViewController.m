@@ -10,60 +10,74 @@
 
 @implementation MathKenViewController
 
-@synthesize mathKenView, buttons;
+@synthesize mathKenView;
 
--(id)init
+
+
+- (void) createMathKenViewWithDimension: (NSInteger) dimension
 {
-	self = [super init];
-	if (self != nil)
+	if (mathKenView != nil)
 	{
-		buttons = [[NSMutableArray alloc] init];
+		[mathKenView removeFromSuperview];
+		[mathKenView release];
 	}
-	return self;
+	mathKenView = [[MathKenView	alloc] initWithFrame:boardRegion.frame dimension: dimension];
+	mathKenView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+	mathKenView.backgroundColor = [UIColor whiteColor];
+	
+	[self.view addSubview: mathKenView];
 }
-
-#define DIMENSION 4
 
  // Implement loadView to create a view hierarchy programmatically, without using a nib.
- - (void)loadView {
-	 // Create a MathKen View to embed later with a dummy rect for now.
-	 mathKenView = [[MathKenView	alloc] initWithFrame:[UIScreen mainScreen].applicationFrame dimension: DIMENSION];
-	 mathKenView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-	 mathKenView.backgroundColor = [UIColor whiteColor];
-	 float size = 40.0;
-	 float spacing = 10.0;
-	 float span = size*DIMENSION + (DIMENSION - 1) * spacing;
-	 float startX = mathKenView.frame.size.width/2 - span/2;
-	 for (int i=0; i < DIMENSION; i++)
-	 {
-		 UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		 button.frame = CGRectMake(startX, 390.0, size, size);
-		 startX += size + spacing;
-		 [button setTitle:[NSString stringWithFormat:@"%ld",(long)(i+1)] forState:UIControlStateNormal];
-
-		 [button addTarget:self action:@selector(numberButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-		 [buttons addObject:button];
-		 [button setNeedsDisplay];
-		 [mathKenView addSubview:button];
-	 }
-	 self.view = mathKenView;
+ - (void)viewDidLoad {
+	 [boardRegion removeFromSuperview];
+	 
+	 [self createMathKenViewWithDimension: 4];
  }
 
--(void)numberButtonClicked:(id)sender
-{
-	NSLog(@"Number button was clicked with value %@",[sender currentTitle]);
-	[mathKenView numberGuessed: [[sender currentTitle] intValue]];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
     // Release anything that's not essential, such as cached data
 }
 
+- (IBAction)newGameAction:(id)sender
+{
+	UIActionSheet *styleAlert =
+	[[UIActionSheet alloc] initWithTitle:@"Choose a Board:"
+															delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil
+										 otherButtonTitles:@"4 x 4", @"6 x 6", nil, nil];
+	
+	// use the same style as the nav bar
+	styleAlert.actionSheetStyle = self.navigationController.navigationBar.barStyle;
+	
+	[styleAlert showInView:self.view];
+	[styleAlert release];
+}
+
+
+// change the navigation bar style, also make the status bar match with it
+- (void)actionSheet:(UIActionSheet *)modalView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	switch (buttonIndex)
+	{
+		case 0:
+		{
+			[self createMathKenViewWithDimension: 4];
+			break;
+		}
+		case 1:
+		{
+			[self createMathKenViewWithDimension: 6];
+			break;
+		}
+
+	}
+}
 
 - (void)dealloc {
 	[mathKenView release];
-	[buttons release];
 	[super dealloc];
 }
 

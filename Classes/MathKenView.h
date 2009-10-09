@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Board.h"
 #import "MKCell.h"
+#import "MKFloatingInputView.h"
 
 @interface MathKenView : UIView {
 	NSTimer * timer;
 	Board * board;
 	MKCell * activeCell;
+	MKFloatingInputView *inputView;
 }
 
 - (id) initWithFrame:(CGRect)rect dimension: (NSInteger)dimension;
@@ -21,4 +23,5 @@
 - (void) cellSelected:(id)sender;
 
 @property (nonatomic, retain) MKCell * activeCell;
+@property (nonatomic, retain) MKFloatingInputView * inputView;
 @end

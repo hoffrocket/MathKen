@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "MathKenView.h"
 
-@interface MathKenViewController : UIViewController {
+@interface MathKenViewController : UIViewController<UIActionSheetDelegate> {
 	MathKenView *mathKenView;
-	NSMutableArray * buttons;
+	IBOutlet UIView *boardRegion;
 }
-@property(nonatomic, retain) NSMutableArray *buttons;
 @property(nonatomic, retain) MathKenView *mathKenView;
+- (IBAction)newGameAction:(id)sender;
 
 @end
 

@@ -11,15 +11,16 @@
 
 @implementation MathKenView
 
-@synthesize activeCell;
+@synthesize activeCell,inputView;
 
 - (id) initWithFrame:(CGRect)rect dimension: (NSInteger)dimension{
 	self = [super initWithFrame:rect];
 	if (self != nil) {
-		NSLog(@"Insantiated the MathKenView");
+		NSLog(@"Instantiated the MathKenView");
 		
 		board = [[Board alloc] initWithDimension:dimension];
-	    
+
+		NSLog(@"Finished Instantiated the MathKenView");
 	}
 	return self;
 }
@@ -28,11 +29,13 @@
 {
 	[super layoutSubviews];
 	CGRect rect = [self bounds];
+
+	
 	NSInteger dimension = [board dimension];
 	float startX = 10.0;
 	
 	float size = floor((rect.size.width - (2*startX))/dimension);
-	float startY = (rect.size.height - (dimension * size)) / 2;
+	float startY = 10;
 
 	for(int i = 0; i < dimension; i++)
 	{
@@ -45,6 +48,12 @@
 			[self addSubview:cell];
 		}
 	}
+	
+	inputView = [[MKFloatingInputView alloc] initWithCallBackRecevier:self dimension: dimension];
+	inputView.hidden = YES;
+	
+	[self addSubview:inputView];
+
 }
 
 -(void)cellSelected:(id)sender
@@ -54,6 +63,8 @@
 		[activeCell toggleSelected];
 	}
 	activeCell = sender;
+	inputView.hidden = NO;
+	
 	[activeCell toggleSelected];
 }
 - (void) numberGuessed:(NSInteger) guess
@@ -62,10 +73,16 @@
 	{
 		[activeCell guess: guess];
 	}
+	inputView.hidden = YES;
 }
 
 - (void)dealloc {
 	[board release];
+	if (activeCell != nil)
+	{
+		[activeCell release];
+	}
+	[inputView release];
 	[super dealloc];
 }
 
